@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-add-item',
@@ -8,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class AddItemComponent implements OnInit {
 
   // siin ühendus itemService-ga
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(form: any) {
+    console.log(form);
+    this.itemService.itemsInService.push();
+  }
   // siia teeme sisestuse funktsiooni
   // ja pushime service-i sisse uue eseme
 }

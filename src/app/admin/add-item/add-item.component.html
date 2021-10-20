@@ -1,7 +1,24 @@
-<p>add-item works!</p>
 
 
 <!-- <form (ngSubmit)="onSubmit()" #form="ngForm">
   w3schools forms
   https://www.w3schools.com/html/html_forms.asp
 </form> -->
+
+
+<form (ngSubmit)="onSubmit(addItemForm)" #addItemForm="ngForm">
+  <label>Eseme nimetus</label><br>
+  <input ngModel name="pealkiri" type="text"><br>
+  <button>Lisa ese</button>
+</form>
+
+<!-- copy-paste label ja input
+ning muuda name="" selliseks nagu meil on Service-i sees
+on hind
+
+name=""   inputis sisestatakse        
+{pealkiri:  VÄÄRTUS,          servie-i sees hinna jaoks  }
+
+1. copy-paste label ja input
+2. muutke name="" selliseks nagu on Service-i sees võti
+-->
