@@ -1,0 +1,11 @@
+<div *ngFor="let item of items">
+  <div>{{ item.pealkiri }}</div>
+  <div>{{ item.hind }}</div>
+  <button (click)="onDeleteItem(item)">X</button>
+  <button routerLink="/admin/muuda-ese">Muuda ese</button>
+  <br>
+</div>
+
+<!-- kustutamise nupp - klikiga läheb käima
+  onDeleteItem()
+-->
