@@ -8,17 +8,40 @@
 
 <form (ngSubmit)="onSubmit(addItemForm)" #addItemForm="ngForm">
   <label>Eseme nimetus</label><br>
-  <input ngModel name="pealkiri" type="text"><br>
+  <input ngModel name="title" type="text"><br>
+  <label>Eseme hind</label><br>
+  <input ngModel name="price" type="number"><br>
+  <label>Eseme pilt</label><br>
+  <input ngModel name="imgSrc" type="text"><br>
+  <label>Eseme kategooria</label><br>
+  <input ngModel name="category" type="text"><br>
+  <label>Ese aktiivne</label><br>
+  <input ngModel name="isActive" type="checkbox"><br>
   <button>Lisa ese</button>
 </form>
 
-<!-- copy-paste label ja input
-ning muuda name="" selliseks nagu meil on Service-i sees
-on hind
 
-name=""   inputis sisestatakse        
-{pealkiri:  VÄÄRTUS,          servie-i sees hinna jaoks  }
+<!-- 
+  E,K 14.00-17.15
+  E,K,R 15.00-17.15 (ilma pausita)
+  
+  URL parameetrite juurde:
+ESMASPÄEV: paneme muutuja URLi ja saame selle kätte ning vastavalt sellele näitame
+mingit teatud toodet
+ActivatedRoute Service-i kaudu
+17.30
 
-1. copy-paste label ja input
-2. muutke name="" selliseks nagu on Service-i sees võti
+KOLMAPÄEV:
+toote muutmine
+ngForm - praegu, toote lisamiseks
+formGroup - toote muutmiseks
+17.30
+
+NÄDAL PÄRAST -
+kategooriate jaoks kõigepealt add-i ja edit-sse dropdown
+w3schools select and option (dropdown)
+kategooriatele ngFor
+hoiame Service-s
+teeme lisamise
+teeme kustutamise
 -->
