@@ -21,6 +21,3 @@ export class ViewItemsComponent implements OnInit {
   }
 
 }
-
-// K 15.30
-// 14.00 - 17.15

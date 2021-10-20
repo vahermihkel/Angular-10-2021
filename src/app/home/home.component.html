@@ -1,8 +1,25 @@
+<!-- if tähendab näitab või ei näita
+kui on true siis näitab
+kui on false siis ei näita
+
+lisatud muutuja on viide .ts sisse kus peab olema
+  sama nimega muutuja-->
 <div *ngIf="lisatud">Lisati ostukorvi</div>
 
+<!-- teeb kordust 
+  täpselt nii mitu korda korrutatakse ngfor siseseid ridu
+  kui palju on elemente "esemed" massiivi sees 
+
+"esemed" on viide .ts muutujale, mis peab seal sees olema
+
+"ese" on viidatud kui 1 element seal massiivis
+
+.pealkiri 
+.hind 
+abil saan kätte väärtused selle elemendi küljest-->
 <div *ngFor="let ese of esemed" class="item">
   <div>{{ ese.pealkiri }}</div>
   <div>{{ ese.hind }}</div>
   <img src="assets/webshio.png" alt="">
-  <button (click)="ostukorviLisamine()">Lisa ostukorvi</button>
+  <button (click)="ostukorviLisamine(ese)">Lisa ostukorvi</button>
 </div>
