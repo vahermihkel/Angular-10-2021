@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.esemed = this.itemService.itemsInService;
     console.log("olen home componendis");
+    console.log(this.esemed);
     // parem klõps lehel
     // inspect (inspekteeri)
     // console tääb 
