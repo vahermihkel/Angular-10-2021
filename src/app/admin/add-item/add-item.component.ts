@@ -15,9 +15,12 @@ export class AddItemComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    console.log(form.value);
-    console.log(form);
-    this.itemService.itemsInService.push(form.value);
+    if (form.valid) {
+      console.log(form.value);
+      console.log(form);
+      this.itemService.itemsInService.push(form.value);
+    }
+    console.log("VAJUTASID NUPPU")
   }
   // siia teeme sisestuse funktsiooni
   // ja pushime service-i sisse uue eseme

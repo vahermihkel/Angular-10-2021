@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'admin/lisa-ese', component: AddItemComponent },
   { path: 'admin/muuda-ese/:itemId', component: EditItemComponent },
   { path: 'admin/esemed', component: ViewItemsComponent },
-  { path: 'ese/:itemId', component: ViewComponent },
+  { path: 'ese/:esemeTähis', component: ViewComponent },
 ];
 
 @NgModule({

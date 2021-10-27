@@ -1,5 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* fonts.google.com lehelt @import alt */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap');
+
+/* tärn tähendab, et see läheb kõigele peale
+ehk kõikidele elementidele
+hoia hiirt tärni peal, et näha kellele see aplikeerub */
+* {
+  font-family: 'Zen Antique', serif;
+}
+
 body {
   margin: 0;
 }
+
+/* styles.css on selline kujundusfail, mis aplikeerub igale
+componendile
+
+kui ma muudan component.css failis, siis kujundatakse vaid
+seda componenti
+
+kui CSS kordub vähemalt 2-s component.css failis, tõstan selle korduva
+lõigu styles.css faili
+
+user agent stylesheet -> styles.css -> component.css -> html-s style kaudu
+*/
