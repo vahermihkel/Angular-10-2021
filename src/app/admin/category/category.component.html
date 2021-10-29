@@ -1,0 +1,8 @@
+<!-- a-form + enter
+AINULT HTML
+ja vaadake addItem.component.html-i -->
+
+<div *ngFor="let category of categories">
+  <div>{{ category }}</div>
+  <button (click)="onRemoveCategory(category)">Kustuta</button>
+</div>

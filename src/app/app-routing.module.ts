@@ -7,6 +7,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { EditItemComponent } from './admin/edit-item/edit-item.component';
 import { ViewItemsComponent } from './admin/view-items/view-items.component';
 import { ViewComponent } from './home/view/view.component';
+import { CategoryComponent } from './admin/category/category.component';
 
 const routes: Routes = [
   // path: 'localhost:4200', component: ./home/home.component.html
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'admin/lisa-ese', component: AddItemComponent },
   { path: 'admin/muuda-ese/:itemId', component: EditItemComponent },
   { path: 'admin/esemed', component: ViewItemsComponent },
+  { path: 'admin/kategooria', component: CategoryComponent },
   { path: 'ese/:esemeTähis', component: ViewComponent },
 ];
 
