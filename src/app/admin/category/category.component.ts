@@ -30,7 +30,7 @@ export class CategoryComponent implements OnInit {
     console.log(form);
     console.log(form.value);
     console.log(form.value.category);
-    this.categoryService.categoriesInService.push(form.value.category)
+    this.categoryService.categoriesInService.push(form.value.category);
   }
 
 }

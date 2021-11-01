@@ -18,9 +18,10 @@ lisatud muutuja on viide .ts sisse kus peab olema
 .hind 
 abil saan kätte väärtused selle elemendi küljest-->
 <div *ngFor="let ese of esemed" class="item">
+  <!-- {{ ese | json }} -->
   <div>{{ ese.title }}</div>
   <div>{{ ese.price }}</div>
   <img routerLink="ese/{{ese.title}}" src="{{ ese.imgSrc }}" alt=""><br>
-  <button (click)="ostukorviLisamine(ese)">Lisa ostukorvi</button>
+  <button (click)="ostukorviLisamine(ese)">{{"Lisa ostukorvi" | translate}}</button>
   <br><br>
 </div>

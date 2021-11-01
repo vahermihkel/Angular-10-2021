@@ -2,6 +2,14 @@
 AINULT HTML
 ja vaadake addItem.component.html-i -->
 
+<form (ngSubmit)="onSubmit(addCategoryForm)" #addCategoryForm="ngForm">
+  <label>Kategooria</label> <br>
+  <input ngModel name="category" type="text"> <br>
+  <button [disabled]="">Lisa kategooria</button>
+</form>
+
+<br><br>
+
 <div *ngFor="let category of categories">
   <div>{{ category }}</div>
   <button (click)="onRemoveCategory(category)">Kustuta</button>
