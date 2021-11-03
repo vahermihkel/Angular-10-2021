@@ -1,10 +1,3 @@
-<!-- if tähendab näitab või ei näita
-kui on true siis näitab
-kui on false siis ei näita
-
-lisatud muutuja on viide .ts sisse kus peab olema
-  sama nimega muutuja-->
-<div *ngIf="lisatud">Lisati ostukorvi</div>
 
 <!-- teeb kordust 
   täpselt nii mitu korda korrutatakse ngfor siseseid ridu
@@ -17,11 +10,11 @@ lisatud muutuja on viide .ts sisse kus peab olema
 .pealkiri 
 .hind 
 abil saan kätte väärtused selle elemendi küljest-->
-<div *ngFor="let ese of esemed" class="item">
+<div *ngFor="let item of items" class="item">
   <!-- {{ ese | json }} -->
-  <div>{{ ese.title }}</div>
-  <div>{{ ese.price }}</div>
-  <img routerLink="ese/{{ese.title}}" src="{{ ese.imgSrc }}" alt=""><br>
-  <button (click)="ostukorviLisamine(ese)">{{"Lisa ostukorvi" | translate}}</button>
+  <div>{{ item.title }}</div>
+  <div>{{ item.price }} €</div>
+  <img routerLink="ese/{{item.title}}" src="{{ item.imgSrc }}" alt=""><br>
+  <button (click)="onAddToCart(item)">{{"Lisa ostukorvi" | translate}}</button>
   <br><br>
 </div>

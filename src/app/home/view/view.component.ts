@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Item } from 'src/app/models/item.model';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  item: any; // HTML-s näitamiseks
+  item!: Item; // HTML-s näitamiseks
 
   // erinevate failidega ühendused
   constructor(private route: ActivatedRoute, // Angulari kirjutatud Service, mille sees on funktsionaalsus URL-st parameetrite kättesaamine
@@ -19,7 +20,10 @@ export class ViewComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get("esemeTähis");
     console.log(id); // neid pannakse alati arenduses koguaeg, kontrollimaks mis toimub
     // {imgSrc: 'https://i.ebayimg.com/thumbs/images/g/ySYAAOSwlmxdXMXw/s-l225.webp', title: 'BRAND NEW Sony PlayStation 2 Slim Console Black PS2 System Game (NTSC)', price: 398.99, category: 'sony', isActive: true}
-    this.item = this.itemService.itemsInService.find(item => item.title == id);
+    let itemFound = this.itemService.itemsInService.find(item => item.title == id);
+    if (itemFound) { //itemFound != undefined
+      this.item = itemFound;
+    }
     console.log(this.item); // neid pannakse alati arenduses koguaeg, kontrollimaks mis toimub
   }
   // let id = "Ese2";

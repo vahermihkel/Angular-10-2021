@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../models/item.model';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
           // koolon annab tüübi, ükskõik mis massiiv on tüübiks
           // võrdusmärgiga annan väärtust
-  cartItems: any[] = [];
+  cartItems: Item[] = [];
   sumOfCart = 0;
   
   // constructorisse ühenduse CartService-i osas
@@ -29,22 +30,22 @@ export class CartComponent implements OnInit {
   //this.cartItems.forEach({title: "Ese2", price: 200} =>  300   =  100  + 200 )
   //this.cartItems.forEach({title: "Ese2", price: 200} =>  500   =  300  + 200 )
 
-    this.cartItems.forEach(item => this.sumOfCart = this.sumOfCart + item.hind)
+    this.cartItems.forEach(item => this.sumOfCart = this.sumOfCart + item.price)
   }
 
-  deleteItemFromCart(cartItem: any) {
+  deleteItemFromCart(cartItem: Item) {
     let index = this.cartService.cartItemsInService.indexOf(cartItem);
     this.cartService.cartItemsInService.splice(index,1);
     this.cartItems = this.cartService.cartItemsInService;
     this.sumOfCart = 0;
-    this.cartItems.forEach(item => this.sumOfCart = this.sumOfCart + item.hind)
+    this.cartItems.forEach(item => this.sumOfCart = this.sumOfCart + item.price)
   }
 
   emptyCart() {
     this.cartService.cartItemsInService = [];
     this.cartItems = this.cartService.cartItemsInService;
     this.sumOfCart = 0;
-    this.cartItems.forEach(item => this.sumOfCart = this.sumOfCart + item.hind)
+    this.cartItems.forEach(item => this.sumOfCart = this.sumOfCart + item.price)
   }
 
 }

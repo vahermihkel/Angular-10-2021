@@ -7,6 +7,8 @@ taustavärv lightgray, 100% lai, sest kõik div elemendid on 100% laiad -->
   <img class="menu-button" routerLink="/" src="assets/webshio.png" alt="">
                       <!-- Angulari lisaatribuut - routerLink vahetab URLi -->
   <button routerLink="admin">{{"adminPageLinkButtonText" | translate }}</button>
+  <button (click)="useLanguage('en')">en</button>
+  <button (click)="useLanguage('ee')">ee</button>
   <img class="cart-button menu-button" routerLink="ostukorv" src="assets/cart.png" alt="">
 </div>
 
