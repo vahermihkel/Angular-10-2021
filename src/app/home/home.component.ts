@@ -9,9 +9,16 @@ import { ItemService } from '../services/item.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  // date = new Date();
+  // hind = 19997.99;
+  // protsent = 0.78;
+  // lause = "Tere tulemast";
+  // nimi = "mihkel peeter joosep vaher";
+
   items: Item[] = [];
   sortTitleAsc = true;
   sortPriceAsc = true;
+  wordCount = 4;
 
   constructor(private cartService: CartService,
     private itemService: ItemService) { }

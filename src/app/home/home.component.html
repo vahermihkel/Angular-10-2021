@@ -1,5 +1,13 @@
+<input type="range" min="0" max="15" [(ngModel)]="wordCount">
+
+<!-- <div>{{ date | date:'shortTime' }}</div>
+<div>{{ hind | currency:'EUR' }}</div>
+<div>{{ protsent | percent }}</div>
+<div>{{ lause | uppercase }}</div>
+<div>{{ nimi | titlecase }}</div> -->
 
 <!-- teeb kordust 
+
   täpselt nii mitu korda korrutatakse ngfor siseseid ridu
   kui palju on elemente "esemed" massiivi sees 
 
@@ -23,10 +31,10 @@ abil saan kätte väärtused selle elemendi küljest-->
 <br><br><br>
 
 <div *ngFor="let item of items" class="item">
-  <!-- {{ ese | json }} -->
-  <div>{{ item.title }}</div>
-  <div>{{ item.price }} €</div>
+  <!-- {{ ese | json   alt+1+2+4   }} -->
+  <div>{{ item.title | shortenTitle:wordCount }}</div>
+  <div>{{ item.price | itemPrice }}</div>
   <img routerLink="ese/{{item.id}}" src="{{ item.imgSrc }}" alt=""><br>
-  <button (click)="onAddToCart(item)">{{"Lisa ostukorvi" | translate}}</button>
+  <button (click)="onAddToCart(item)">{{"Lisa ostukorvi" | translate  }}</button>
   <br><br>
 </div>
