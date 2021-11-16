@@ -23,4 +23,22 @@ export class HomeComponent implements OnInit {
   onAddToCart(item: Item){
     this.cartService.cartItemsInService.push(item);
   }
+
+  // JS sort array object string
+  onSortByTitleAsc() {
+    this.items.sort((currentItem, nextItem)=> currentItem.title.localeCompare(nextItem.title) );
+  }
+
+  onSortByTitleDesc() {
+    this.items.sort((currentItem, nextItem)=> nextItem.title.localeCompare(currentItem.title) );
+  }
+
+  // JS sort array object number
+  onSortByPriceAsc() {
+    this.items.sort((currentItem, nextItem)=> currentItem.price - nextItem.price);
+  }
+
+  onSortByPriceDesc() {
+    this.items.sort((currentItem, nextItem)=> nextItem.price - currentItem.price);
+  }
 }

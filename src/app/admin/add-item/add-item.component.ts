@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
 import { ItemService } from 'src/app/services/item.service';
 
@@ -8,7 +9,7 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  categories: any[] = [];
+  categories: string[] = [];
 
   constructor(private itemService: ItemService,
     private categoryService: CategoryService) { }
@@ -17,7 +18,7 @@ export class AddItemComponent implements OnInit {
     this.categories = this.categoryService.categoriesInService;
   }
 
-  onSubmit(form: any) {
+  onSubmit(form: NgForm) {
     if (form.valid) {
       console.log(form.value);
       console.log(form);
@@ -25,6 +26,4 @@ export class AddItemComponent implements OnInit {
     }
     console.log("VAJUTASID NUPPU")
   }
-  // siia teeme sisestuse funktsiooni
-  // ja pushime service-i sisse uue eseme
 }

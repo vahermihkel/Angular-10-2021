@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -7,29 +8,20 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  //1. Tee muutuja categoriesInService
-  // CategoryService sisse - 
-  // kui jätan tühja massiivi, pean panema
-  // ka tüübi
-  categories: any[] = [];
+  categories: string[] = [];
 
-  // 2. Ühendus CategoryService-ga (import)
   constructor(private categoryService: CategoryService) { }
 
-  // 3. Täida categories muutuja service seest
   ngOnInit(): void {
     this.categories = this.categoryService.categoriesInService;
   }
 
-  onRemoveCategory(category: any) {
+  onRemoveCategory(category: string) {
     let index = this.categoryService.categoriesInService.indexOf(category);
     this.categoryService.categoriesInService.splice(index,1);
   }
 
-  onSubmit(form:any) {
-    console.log(form);
-    console.log(form.value);
-    console.log(form.value.category);
+  onSubmit(form:NgForm) {
     this.categoryService.categoriesInService.push(form.value.category);
   }
 

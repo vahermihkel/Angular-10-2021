@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/models/item.model';
 import { ItemService } from 'src/app/services/item.service';
 
@@ -13,18 +13,21 @@ export class ViewComponent implements OnInit {
 
   // erinevate failidega ühendused
   constructor(private route: ActivatedRoute, // Angulari kirjutatud Service, mille sees on funktsionaalsus URL-st parameetrite kättesaamine
-    private itemService: ItemService) { } // mul on ItemService-s kõige täpsem esemete seis - seal asuvad täpselt need tooted, mida välja kuvatakse, kust kustutatakse jne
+    private itemService: ItemService,
+    private router: Router) { } // mul on ItemService-s kõige täpsem esemete seis - seal asuvad täpselt need tooted, mida välja kuvatakse, kust kustutatakse jne
 
   ngOnInit(): void {
+    // 16.15
     // BRAND%20NEW%20Sony%20PlayStation%202%20Slim%20Console%20Black%20PS2%20System%20Game%20%28NTSC%29
-    let id = this.route.snapshot.paramMap.get("esemeTähis");
+    let id = Number(this.route.snapshot.paramMap.get("itemId"));
     console.log(id); // neid pannakse alati arenduses koguaeg, kontrollimaks mis toimub
     // {imgSrc: 'https://i.ebayimg.com/thumbs/images/g/ySYAAOSwlmxdXMXw/s-l225.webp', title: 'BRAND NEW Sony PlayStation 2 Slim Console Black PS2 System Game (NTSC)', price: 398.99, category: 'sony', isActive: true}
-    let itemFound = this.itemService.itemsInService.find(item => item.title == id);
+    let itemFound = this.itemService.itemsInService.find(item => item.id == id);
     if (itemFound) { //itemFound != undefined
       this.item = itemFound;
     }
     console.log(this.item); // neid pannakse alati arenduses koguaeg, kontrollimaks mis toimub
+    
   }
   // let id = "Ese2";
      // [{title: "Ese1", price: 100},{title: "Ese2", price: 200},{title: "Ese2", price: 200} ].find()

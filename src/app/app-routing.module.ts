@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'admin/muuda-ese/:itemId', component: EditItemComponent },
   { path: 'admin/esemed', component: ViewItemsComponent },
   { path: 'admin/kategooria', component: CategoryComponent },
-  { path: 'ese/:esemeTähis', component: ViewComponent },
+  { path: 'ese/:itemId', component: ViewComponent },
 ];
 
 @NgModule({
