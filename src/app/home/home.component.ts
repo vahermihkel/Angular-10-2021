@@ -10,6 +10,8 @@ import { ItemService } from '../services/item.service';
 })
 export class HomeComponent implements OnInit {
   items: Item[] = [];
+  sortTitleAsc = true;
+  sortPriceAsc = true;
 
   constructor(private cartService: CartService,
     private itemService: ItemService) { }
@@ -24,21 +26,45 @@ export class HomeComponent implements OnInit {
     this.cartService.cartItemsInService.push(item);
   }
 
-  // JS sort array object string
-  onSortByTitleAsc() {
-    this.items.sort((currentItem, nextItem)=> currentItem.title.localeCompare(nextItem.title) );
+  // peale klikk - 1 nupp
+  // sortTitleAsc = true;
+
+  // sortTitleAsc = false;
+  onSortByTitle() {
+    if (this.sortTitleAsc) { // if (this.sortTitleAsc == true)
+      this.items.sort((currentItem, nextItem)=> currentItem.title.localeCompare(nextItem.title) );
+      this.sortTitleAsc = false;
+    } else {
+      this.items.sort((currentItem, nextItem)=> nextItem.title.localeCompare(currentItem.title) );
+      this.sortTitleAsc = true;
+    }
   }
 
-  onSortByTitleDesc() {
-    this.items.sort((currentItem, nextItem)=> nextItem.title.localeCompare(currentItem.title) );
-  }
+  // JS sort array object string
+  // onSortByTitleAsc() {
+  //   this.items.sort((currentItem, nextItem)=> currentItem.title.localeCompare(nextItem.title) );
+  // }
+
+  // onSortByTitleDesc() {
+  //   this.items.sort((currentItem, nextItem)=> nextItem.title.localeCompare(currentItem.title) );
+  // }
 
   // JS sort array object number
-  onSortByPriceAsc() {
-    this.items.sort((currentItem, nextItem)=> currentItem.price - nextItem.price);
-  }
+  // onSortByPriceAsc() {
+  //   this.items.sort((currentItem, nextItem)=> currentItem.price - nextItem.price);
+  // }
 
-  onSortByPriceDesc() {
-    this.items.sort((currentItem, nextItem)=> nextItem.price - currentItem.price);
+  // onSortByPriceDesc() {
+  //   this.items.sort((currentItem, nextItem)=> nextItem.price - currentItem.price);
+  // }
+
+  onSortByPrice() {
+    if (this.sortPriceAsc) { // if (this.sortTitleAsc == true)
+      this.items.sort((currentItem, nextItem)=> currentItem.price - nextItem.price);
+      this.sortPriceAsc = false;
+    } else {
+      this.items.sort((currentItem, nextItem)=> nextItem.price - currentItem.price);
+      this.sortPriceAsc = true;
+    }
   }
 }

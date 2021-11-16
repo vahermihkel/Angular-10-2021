@@ -11,10 +11,14 @@
 .hind 
 abil saan kätte väärtused selle elemendi küljest-->
 
-<button (click)="onSortByTitleAsc()">Järjesta A-Z</button>
-<button (click)="onSortByTitleDesc()">Järjesta Z-A</button>
-<button (click)="onSortByPriceAsc()">Järjesta odavamast</button>
-<button (click)="onSortByPriceDesc()">Järjesta kallimast</button>
+<!-- <button (click)="onSortByTitleAsc()">Järjesta A-Z</button>
+<button (click)="onSortByTitleDesc()">Järjesta Z-A</button> -->
+<button (click)="onSortByTitle()">Tähestiku järgi</button>
+
+<!-- <button (click)="onSortByPriceAsc()">Järjesta odavamast</button>
+<button (click)="onSortByPriceDesc()">Järjesta kallimast</button> -->
+<button (click)="onSortByPrice()">Hinna järgi</button>
+
 
 <br><br><br>
 
@@ -22,7 +26,7 @@ abil saan kätte väärtused selle elemendi küljest-->
   <!-- {{ ese | json }} -->
   <div>{{ item.title }}</div>
   <div>{{ item.price }} €</div>
-  <img routerLink="ese/{{item.id}}-" src="{{ item.imgSrc }}" alt=""><br>
+  <img routerLink="ese/{{item.id}}" src="{{ item.imgSrc }}" alt=""><br>
   <button (click)="onAddToCart(item)">{{"Lisa ostukorvi" | translate}}</button>
   <br><br>
 </div>
