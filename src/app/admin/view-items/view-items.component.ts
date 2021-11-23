@@ -8,17 +8,28 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./view-items.component.css']
 })
 export class ViewItemsComponent implements OnInit {
+  // tüüp on {title: string, price: number}[]
   items: Item[] = [];
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.items = this.itemService.itemsInService;
+    // this.items = this.itemService.itemsInService;
+    this.itemService.getItemsFromDatabase().subscribe(itemsFromDb => {
+      this.items = itemsFromDb;
+      this.itemService.itemsInService = itemsFromDb;
+    })
   }
 
   onDeleteItem(item: Item) {
     let index = this.itemService.itemsInService.indexOf(item);
     this.itemService.itemsInService.splice(index,1);
+    this.items.splice(index,1);
+    this.itemService.addItemsToDatabase().subscribe();
+  }
+
+  onAddItemsToDatabase() {
+    this.itemService.addItemsToDatabase().subscribe();
   }
 
 }

@@ -25,8 +25,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     //this.items = [3,2,1,4];
-    this.items = this.itemService.itemsInService;
+    // this.items = this.itemService.itemsInService;
     //this.items = [{title: "Ese1"},"Ese2",{price: "ese3"}]
+    this.itemService.getItemsFromDatabase().subscribe(itemsFromDb => {
+      this.items = itemsFromDb;
+      this.itemService.itemsInService = itemsFromDb;
+    })
   }
 
   onAddToCart(item: Item){

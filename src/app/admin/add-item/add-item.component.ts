@@ -16,6 +16,9 @@ export class AddItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories = this.categoryService.categoriesInService;
+    this.itemService.getItemsFromDatabase().subscribe(itemsFromDb => {
+      this.itemService.itemsInService = itemsFromDb;
+    })
   }
 
   onSubmit(form: NgForm) {
@@ -23,6 +26,7 @@ export class AddItemComponent implements OnInit {
       console.log(form.value);
       console.log(form);
       this.itemService.itemsInService.push(form.value);
+      this.itemService.addItemsToDatabase().subscribe();
     }
     console.log("VAJUTASID NUPPU")
   }
