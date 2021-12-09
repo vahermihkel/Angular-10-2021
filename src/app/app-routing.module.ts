@@ -8,6 +8,9 @@ import { EditItemComponent } from './admin/edit-item/edit-item.component';
 import { ViewItemsComponent } from './admin/view-items/view-items.component';
 import { ViewComponent } from './home/view/view.component';
 import { CategoryComponent } from './admin/category/category.component';
+import { AuthGuard } from './auth/auth.guard';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 const routes: Routes = [
   // path: 'localhost:4200', component: ./home/home.component.html
@@ -16,12 +19,16 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
     // path: 'localhost:4200/ostukorv', component ./cart/cart.component
   { path: 'ostukorv', component: CartComponent },
-  { path: 'admin', component: AdminHomeComponent },
-  { path: 'admin/lisa-ese', component: AddItemComponent },
-  { path: 'admin/muuda-ese/:itemId', component: EditItemComponent },
-  { path: 'admin/esemed', component: ViewItemsComponent },
-  { path: 'admin/kategooria', component: CategoryComponent },
+  { path: 'admin', canActivateChild: [AuthGuard], children: [
+    { path: '', component: AdminHomeComponent },
+    { path: 'lisa-ese', component: AddItemComponent },
+    { path: 'muuda-ese/:itemId', component: EditItemComponent },
+    { path: 'esemed', component: ViewItemsComponent },
+    { path: 'kategooria', component: CategoryComponent },
+    { path: 'registreeri', component: SignupComponent },
+  ] },
   { path: 'ese/:itemId', component: ViewComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

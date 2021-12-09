@@ -1,10 +1,27 @@
 <!-- <button (click)="onAddItemsToDatabase()">LISA ANDMED ANDMEBAASI</button> -->
+<br><br>
 
-<div *ngFor="let item of items">
-  <div>{{ item.title }}</div>
-  <div>{{ item.price | itemPrice }}</div>
-  <div>{{ item.imgSrc }}</div>
-  <div>{{ item.category }}</div>
+ 
+<!-- 
+  () event binding - saadan TS-i
+  [] property binding - see kuulab mingit muutujat
+  [()] two-way binding -->
+
+<label>Otsi toodet:</label>
+<input 
+  (keyup)="onSearch()" 
+  [(ngModel)]="searchedItem" 
+  type="text">
+
+<br><br>
+
+<div *ngFor="let item of items" class="item" [ngClass]="{active: item.isActive, inactive: !item.isActive}">
+  <div (click)="onChangeActive(item)">
+    <div>{{ item.title }}</div>
+    <div>{{ item.price | itemPrice }}</div>
+    <div>{{ item.imgSrc }}</div>
+    <div>{{ item.category }}</div>
+  </div>
   <button (click)="onDeleteItem(item)">X</button>
   <button routerLink="/admin/muuda-ese/{{item.id}}">Muuda ese</button>
   <br>

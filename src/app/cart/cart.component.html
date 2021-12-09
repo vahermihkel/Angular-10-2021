@@ -1,4 +1,4 @@
-<button *ngIf="cartItems.length > 0" (click)="emptyCart()">Tühjenda ostukorv</button>
+<button *ngIf="cartItems.length > 0" (click)="onEmptyCart()">Tühjenda ostukorv</button>
 
 <!-- == 0 -->
 <!-- ngIf - kas näitab või ei näita, vastavalt kas on true/false -->
@@ -8,10 +8,14 @@
 </div>
 
 <div *ngFor="let cartItem of cartItems" class="item">
-  <div>{{ cartItem.title }}</div>
-  <div>{{ cartItem.price | itemPrice }}</div>
-  <img src="{{ cartItem.imgSrc }}" alt="">
-  <button (click)="deleteItemFromCart(cartItem)">X</button>
+  <div>{{ cartItem.cartItem.title }}</div>
+  <div>{{ cartItem.cartItem.price | itemPrice }}</div>
+  <button (click)="onDeleteOneFromCart(cartItem)">-</button>
+  <div>{{ cartItem.quantity }}</div>
+  <button (click)="onAddToCart(cartItem)">+</button>
+  <div>{{ cartItem.cartItem.price * cartItem.quantity | itemPrice }}</div>
+  <img src="{{ cartItem.cartItem.imgSrc }}" alt="">
+  <button (click)="onDeleteItemFromCart(cartItem)">X</button>
 </div>
 
 <div *ngIf="cartItems.length > 0">Ostukorvi kogusumma on {{ sumOfCart | itemPrice }}</div>

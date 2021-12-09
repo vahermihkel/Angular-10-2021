@@ -14,6 +14,13 @@ export class HomeComponent implements OnInit {
   // protsent = 0.78;
   // lause = "Tere tulemast";
   // nimi = "mihkel peeter joosep vaher";
+  //images = [700, 533, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  images = [
+    {url: "https://picsum.photos/id/700/900/500", header: "h1", text: "t1", alt: "a1"},
+    {url: "https://picsum.photos/id/700/900/533", header: "h2", text: "t2", alt: "a2"},
+    {url: "https://picsum.photos/id/700/900/807", header: "h3", text: "t3", alt: "a3"},
+    {url: "https://picsum.photos/id/700/900/123", header: "h4", text: "t4", alt: "a4"},
+  ]
 
   items: Item[] = [];
   sortTitleAsc = true;
@@ -29,12 +36,8 @@ export class HomeComponent implements OnInit {
     //this.items = [{title: "Ese1"},"Ese2",{price: "ese3"}]
     this.itemService.getItemsFromDatabase().subscribe(itemsFromDb => {
       this.items = itemsFromDb;
-      this.itemService.itemsInService = itemsFromDb;
+      this.itemService.updateItems(itemsFromDb);
     })
-  }
-
-  onAddToCart(item: Item){
-    this.cartService.cartItemsInService.push(item);
   }
 
   // peale klikk - 1 nupp

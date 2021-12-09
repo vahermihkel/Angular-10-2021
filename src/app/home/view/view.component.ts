@@ -22,7 +22,7 @@ export class ViewComponent implements OnInit {
     let id = Number(this.route.snapshot.paramMap.get("itemId"));
     console.log(id); // neid pannakse alati arenduses koguaeg, kontrollimaks mis toimub
     // {imgSrc: 'https://i.ebayimg.com/thumbs/images/g/ySYAAOSwlmxdXMXw/s-l225.webp', title: 'BRAND NEW Sony PlayStation 2 Slim Console Black PS2 System Game (NTSC)', price: 398.99, category: 'sony', isActive: true}
-    let itemFound = this.itemService.itemsInService.find(item => item.id == id);
+    let itemFound = this.itemService.findItem(id);
     if (itemFound) { //itemFound != undefined
       this.item = itemFound;
     }
