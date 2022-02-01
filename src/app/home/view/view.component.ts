@@ -17,7 +17,6 @@ export class ViewComponent implements OnInit {
     private router: Router) { } // mul on ItemService-s kõige täpsem esemete seis - seal asuvad täpselt need tooted, mida välja kuvatakse, kust kustutatakse jne
 
   ngOnInit(): void {
-    // 16.15
     // BRAND%20NEW%20Sony%20PlayStation%202%20Slim%20Console%20Black%20PS2%20System%20Game%20%28NTSC%29
     let id = Number(this.route.snapshot.paramMap.get("itemId"));
     console.log(id); // neid pannakse alati arenduses koguaeg, kontrollimaks mis toimub
